@@ -1,0 +1,52 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  string default_text = "우리는 열심히 해서 꿈을 이룰 것이다";
+
+  // Check if the file exists
+  ifstream check_file("example.txt");
+  if (!check_file.good()) {
+    // If file doesn't exist, create it and add the default text
+    ofstream create_file("example.txt");
+    create_file << default_text;
+    create_file.close();
+  }
+
+  // Open for reading the file
+  ifstream b_file("example.txt");
+
+  // Read the entire file into a string and then print it
+  string file_content;
+  string line;
+  cout << "Current file content:\n";
+  while (getline(b_file, line)) {
+    file_content += line + "\n";
+  }
+  cout << file_content;
+
+  // Close read file stream
+  b_file.close();
+
+  // Open for appending the file
+  ofstream a_file("example.txt", ios_base::app);
+
+  // Asking for user input
+  cout << "\nEnter your text to add to the file: ";
+  string user_input;
+  getline(cin, user_input);
+
+  // Add user input to the file
+  a_file << "\n" << user_input;
+
+  // Close the write file stream
+  a_file.close();
+
+  cout << "Text added successfully!\n";
+
+  cin.get(); // wait for a keypress
+  return 0;
+}
