@@ -1,0 +1,5 @@
+Harry Potter,J.K. Rowling
+Lord of the Rings,J.R.R. Tolkien
+Dune,Frank Herbert
+Gatsby,F. Scott Fitzgerald
+Moby Dick,Herman Melville
